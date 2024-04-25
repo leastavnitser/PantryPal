@@ -15,7 +15,10 @@ class PantryItemsController < ApplicationController
     @pantry_item = PantryItem.create(
       ingredient_id: params[:ingredient_id],
       user_id: current_user.id,
-      amount: params[:amount]
+      amount: params[:amount],
+      category: params[:category]
+      use_by_date: params[:use_by_date]
+
     )
     render :show
   end
