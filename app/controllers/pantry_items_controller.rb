@@ -16,7 +16,7 @@ class PantryItemsController < ApplicationController
       ingredient_id: params[:ingredient_id],
       user_id: current_user.id,
       amount: params[:amount],
-      category: params[:category]
+      category: params[:category],
       use_by_date: params[:use_by_date]
 
     )
@@ -27,8 +27,8 @@ class PantryItemsController < ApplicationController
     @pantry_item = current_user.pantry_items.find_by(id: params[:id])
     @pantry_item.update(
       ingredient_id: params[:ingredient_id] || @pantry_item.ingredient_id,
-      amount: params[:amount] || @pantry_item.amount
-      category: params[:category] || @pantry_item.category
+      amount: params[:amount] || @pantry_item.amount,
+      category: params[:category] || @pantry_item.category,
       use_by_date: params[:use_by_date] || @pantry_item.use_by_date
     )
     render :show
